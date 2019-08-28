@@ -24,14 +24,17 @@ import repositories.ShoppingCartDao;
  */
 public class ShoppingCartServlet extends HttpServlet {
 
-    private AbstractDao productDao = new ProductDao();
-    private AbstractDao shoppingCartDao = new ShoppingCartDao();
+    private final AbstractDao productDao = new ProductDao();
+    private final AbstractDao shoppingCartDao = new ShoppingCartDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<ShoppingCart> shoppingCart = shoppingCartDao.findAll(ShoppingCart.class);
-        request.getSession().setAttribute("shoppingCart", shoppingCart.get(shoppingCart.size() - 1));
+        if (request.getSession().getAttribute("shoppingCart") == null) {
+            List<ShoppingCart> shoppingCarts = shoppingCartDao.findAll(ShoppingCart.class);
+            //todo DOHVATIT ZA USERA POSEBNO
+            request.getSession().setAttribute("shoppingCart", shoppingCarts.get(1));
+        }
         response.sendRedirect("shoppingCartProducts.jsp");
     }
 
@@ -46,7 +49,7 @@ public class ShoppingCartServlet extends HttpServlet {
         }
         int productId = Integer.parseInt(request.getParameter("productId"));
         Product product = (Product) productDao.findById(Product.class, productId);
-        
+
         if (shoppingCart.getShoppingCartProducts().contains(product)) {
             ShoppingCartProduct shoppingCartProduct = shoppingCart
                     .getShoppingCartProducts()
@@ -54,9 +57,9 @@ public class ShoppingCartServlet extends HttpServlet {
                     .filter(sp -> sp.getProduct().equals(product))
                     .findFirst()
                     .get();
-            
+
             int quantity = shoppingCartProduct.getQuantity();
-            shoppingCartProduct.setQuantity(quantity+=1);
+            shoppingCartProduct.setQuantity(quantity += 1);
         } else {
             shoppingCart.getShoppingCartProducts()
                     .add(new ShoppingCartProduct(product, shoppingCart, 1));

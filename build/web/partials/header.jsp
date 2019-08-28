@@ -56,13 +56,16 @@
                             <a href="/WebShop/AddProduct">ADD PRODUCT</a>
                         </li>
                         <li>
-
+                            <a href="/WebShop/ShoppingHistory">Shopping History</a>
                         </li>
                     </ul>
-                    <a href="/WebShop/ShoppingCart">
-                        <img src="resources/imgs/Shopping-Cart-icon.png" alt="" 
-                             style="width: 40px; height:40px;margin-top: 10px; margin-left: 70px;"/>
-                    </a>
+                    <i class="fa" style="font-size:10px">                    
+                        <a href="/WebShop/ShoppingCart">
+                            <img src="resources/imgs/Shopping-Cart-icon.png" alt="" 
+                                 style="width: 40px; height:40px;margin-top: 5px; margin-left: 70px;"/>
+                        </a>
+                    </i>
+                    <span class='badge badge-warning' id='lblCartCount'>${shoppingCartProductsQuantitySum}</span>
                 </div>
             </nav>
         </div>

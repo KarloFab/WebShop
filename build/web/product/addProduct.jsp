@@ -26,7 +26,7 @@
                 <input type="text" name="price">
                 <p>Code</p>
                 <input type="text" name="code">
-                <input type="submit" value="Add product">
+                <input type="submit" value="Add product" class="btn btn-secondary">
             </form>  
         </div>
         <%@include file="/partials/footer.jsp" %>

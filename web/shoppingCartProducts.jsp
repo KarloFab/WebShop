@@ -10,27 +10,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Shopping cart products</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
         <div>
             <c:forEach items="${shoppingCart.shoppingCartProducts}" var="sc" >
                 <div class="allcontain">
-                    <div class="row firstrow">
-                        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 txt1colon product " style="width:600px;">
+                    <div lass="row firstrow">
+                        <div class="" style="width:600px;">
                             <div class="featurecontant">
-                                <h1>${product.name}</h1>
+                                <h1>${sc.product.name}</h1>
                                 <p>"Lorem ipsum dolor sit amet, consectetur ,<br>
                                     sed do eiusmod tempor incididunt </p>
-                                <h2>${product.price} &euro;</h2>
+                                <h2>${sc.product.price} &euro;</h2>
+                                <p>${sc.quantity}</p>
+                                <form action="/WebShop/AddRemoveProductServlet" method="post">
+                                    <input type="submit" id="${sc.product.idproduct}" value="+" name="add" class="btn btn-secondary"/>
+                                    <input type="submit" id="${sc.product.idproduct}" value="-" name="remove" class="btn btn-secondary"/>
+                                    <input type="hidden" value="${sc.product.idproduct}" name="productId">
+                                </form>
+                                <form action="/WebShop/RemoveShoppingCartProduct" method="post">
+                                    <input type="hidden" value="${sc.product.idproduct}" name="productId" >
+                                    <input type="submit" value="Remove product from shopping cart" class="btn btn-secondary">
+                                </form>
                             </div>
                         </div>
-                        <c:forEach items="${product.productCategories}" var="productCategory">
-                            Category: <c:out value = "${productCategory.category.name}"/><p>
-                            </c:forEach>
-                        </p>  
+                        <c:forEach items="${sc.product.productCategories}" var="productCategory">
+                            <p> Category: <c:out value = "${productCategory.category.name}" /> </p>  
+                        </c:forEach>
                     </div>
                 </c:forEach>
+                <form action="/WebShop/CheckoutServlet" method="get">
+                    <input type="submit" value="Checkout" class="btn btn-dark">
+                </form> 
             </div>
             <%@include file="partials/footer.jsp" %>
     </body>

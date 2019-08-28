@@ -16,14 +16,13 @@
         <div class="fadeIn first">
         </div>
         <form action="Login" method="post">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="Username">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
         <div id="formFooter">
             <a class="forgotPassword" href="/WebShop/UserRegistration">Register</a>
             <br/>
-            <a class="forgotPassword" href="#">Forgot Password?</a>
         </div>
 
     </div>

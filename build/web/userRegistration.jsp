@@ -14,19 +14,19 @@
     <body>
         <%@include file="/partials/header.jsp" %>
         <form action="/WebShop/UserRegistration" method="post">
-            <p>Name</p>
+            <p>Name:</p>
             <input type="text" name="name">
-            <p>Surname</p>
+            <p>Surname:</p>
             <input type="text" name="surname">
-            <p>Address</p>
+            <p>Address:</p>
             <input type="text" name="address">
-            <p>Username</p>
+            <p>Username:</p>
             <input type="text" name="username">
-            <p>Password</p>
+            <p>Password:</p>
             <input type="password" name="password">
             <p>Email</p>
             <input type="text" name="email">
-            <input type="submit" value="Register">
+            <input type="submit" value="Register" class="btn btn-dark"> 
         </form> 
         <%@include file="/partials/footer.jsp" %>
     </body>

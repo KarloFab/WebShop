@@ -1162,8 +1162,26 @@
     transition-duration: 0.8s;
 }
 
+/* ------------------------- SHOPPING CART ------------------------- */
 
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
 
-
-
-
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #5B5B5B;
+}
+#lblCartCount {
+    margin-top:5px;
+    font-size: 12px;
+    background: #5B5B5B;
+    color: #fff;
+    padding: 0 10px;
+    vertical-align: top;
+    margin-left: 0px; 
+}

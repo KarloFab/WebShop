@@ -44,6 +44,18 @@
         <servlet-name>UserRegistration</servlet-name>
         <servlet-class>servlets.user.UserRegistration</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddRemoveProductServlet</servlet-name>
+        <servlet-class>servlets.shoppingcart.AddRemoveProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>servlets.checkout.CheckoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShoppingHistory</servlet-name>
+        <servlet-class>servlets.shoppinghistory.ShoppingHistory</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
         <url-pattern>/Main</url-pattern>
@@ -87,6 +99,18 @@
     <servlet-mapping>
         <servlet-name>UserRegistration</servlet-name>
         <url-pattern>/UserRegistration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddRemoveProductServlet</servlet-name>
+        <url-pattern>/AddRemoveProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/CheckoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShoppingHistory</servlet-name>
+        <url-pattern>/ShoppingHistory</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
