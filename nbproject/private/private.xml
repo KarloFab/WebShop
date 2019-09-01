@@ -4,37 +4,51 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/bootstrap-3.3.6-dist/js/bootstrap.js</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/login.jsp</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/userRegistration.jsp</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/slider.css</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/usershoppinghistory/UsersShoppingHistory.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/login.css</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/shoppingcart/RemoveShoppingCartProductServlet.java</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/other/MainServlet.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/bootstrap-3.3.6-dist/css/bootstrap.css</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/product/addProduct.jsp</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/mystyle.css</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/shoppingCartProducts.jsp</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/shoppingcart/ShoppingCartServlet.java</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/partials/shoppingCart.jsp</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/ProductServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/usersShoppingHistory.jsp</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/conf/MANIFEST.MF</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/other/LoginServlet.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/partials/header.jsp</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/category/CategoriesServlet.java</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/ProductsServlet.java</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/bootstrap-3.3.6-dist/css/bootstrap.css.map</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/utils/ShoppingCartUtil.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/product/products.jsp</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/font-awesome-4.5.0/css/font-awesome.min.css</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/UpdateProductServlet.java</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/bootstrap-3.3.6-dist/css/bootstrap.min.css</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/checkout/CheckoutServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/shoppingHistory.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/shoppingcart/AddRemoveProductServlet.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/DeleteProductServlet.java</file>
-            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/imgs/Shopping-Cart-icon.png</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/product/product.jsp</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/main.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/utils/UserUtil.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/user/UserRegistration.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/partials/footer.jsp</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/shoppinghistory/ShoppingHistory.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/filters/WebShopFilter.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/login.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/other/MainServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/contact/Contact.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/mystyle.css</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/shoppingCartProducts.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/shoppingcart/ShoppingCartServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/partials/shoppingCart.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/contact.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/other/LogoutServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/checkout.jsp</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/ProductsServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/bootstrap-3.3.6-dist/css/bootstrap.css.map</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/filters/AdminFilter.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/font-awesome-4.5.0/css/font-awesome.min.css</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/usersloginhistory/UsersLoginHistory.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/UpdateProductServlet.java</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/bootstrap-3.3.6-dist/css/bootstrap.min.css</file>
+            <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/imgs/Shopping-Cart-icon.png</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/resources/contactstyle.css</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/src/java/servlets/product/AddProductServlet.java</file>
             <file>file:/C:/Users/Karlo/Documents/NetBeansProjects/WebShop/web/source/font-awesome-4.5.0/css/font-awesome.css</file>

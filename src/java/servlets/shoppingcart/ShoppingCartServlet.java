@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.ProductDao;
 import repositories.ShoppingCartDao;
+import repositories.ShoppingCartProductDao;
 
 /**
  *
@@ -26,14 +27,20 @@ public class ShoppingCartServlet extends HttpServlet {
 
     private final AbstractDao productDao = new ProductDao();
     private final AbstractDao shoppingCartDao = new ShoppingCartDao();
+    private final AbstractDao shoppingCartProductDao = new ShoppingCartProductDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getSession().getAttribute("shoppingCart") == null) {
             List<ShoppingCart> shoppingCarts = shoppingCartDao.findAll(ShoppingCart.class);
-            //todo DOHVATIT ZA USERA POSEBNO
-            request.getSession().setAttribute("shoppingCart", shoppingCarts.get(1));
+            //nac za usera posebno
+            if (!shoppingCarts.isEmpty()) {
+                request.getSession().setAttribute("shoppingCart", shoppingCarts.get(0));
+            } else {
+                request.getSession().setAttribute("shoppingCart", new ShoppingCart());
+            }
+
         }
         response.sendRedirect("shoppingCartProducts.jsp");
     }
@@ -50,27 +57,23 @@ public class ShoppingCartServlet extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("productId"));
         Product product = (Product) productDao.findById(Product.class, productId);
 
-        if (shoppingCart.getShoppingCartProducts().contains(product)) {
-            ShoppingCartProduct shoppingCartProduct = shoppingCart
-                    .getShoppingCartProducts()
-                    .stream()
-                    .filter(sp -> sp.getProduct().equals(product))
-                    .findFirst()
-                    .get();
+        ShoppingCartProduct shoppingCartProduct = shoppingCart
+                .getShoppingCartProducts()
+                .stream()
+                .filter(sp -> sp.getProduct().getIdproduct() == product.getIdproduct())
+                .findFirst()
+                .orElse(null);
 
+        if (shoppingCartProduct != null) {
             int quantity = shoppingCartProduct.getQuantity();
             shoppingCartProduct.setQuantity(quantity += 1);
+            shoppingCartProductDao.update(shoppingCartProduct);
         } else {
             shoppingCart.getShoppingCartProducts()
                     .add(new ShoppingCartProduct(product, shoppingCart, 1));
             shoppingCartDao.save(shoppingCart);
-            response.sendRedirect("Products");
+
         }
+        response.sendRedirect("Main");
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

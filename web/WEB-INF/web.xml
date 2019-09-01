@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>WebShopFilter</filter-name>
+        <filter-class>filters.WebShopFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>WebShopFilter</filter-name>
+        <url-pattern>/CheckoutServlet</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>filters.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/UserLoginHistory</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/UsersShoppingHistory</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/AddProduct</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Main</servlet-name>
         <servlet-class>servlets.other.MainServlet</servlet-class>
@@ -55,6 +79,22 @@
     <servlet>
         <servlet-name>ShoppingHistory</servlet-name>
         <servlet-class>servlets.shoppinghistory.ShoppingHistory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Contact</servlet-name>
+        <servlet-class>servlets.contact.Contact</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlets.other.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsersShoppingHistory</servlet-name>
+        <servlet-class>servlets.usershoppinghistory.UsersShoppingHistory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsersLoginHistory</servlet-name>
+        <servlet-class>servlets.usersloginhistory.UsersLoginHistory</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
@@ -112,12 +152,28 @@
         <servlet-name>ShoppingHistory</servlet-name>
         <url-pattern>/ShoppingHistory</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Contact</servlet-name>
+        <url-pattern>/Contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersShoppingHistory</servlet-name>
+        <url-pattern>/UsersShoppingHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersLoginHistory</servlet-name>
+        <url-pattern>/UsersLoginHistory</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Login</welcome-file>
+        <welcome-file>Main</welcome-file>
     </welcome-file-list>
 </web-app>

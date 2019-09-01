@@ -21,6 +21,7 @@ import repositories.AbstractDao;
 import repositories.CategoryDao;
 import repositories.ShoppingCartDao;
 import services.ProductService;
+import servlets.utils.ShoppingCartUtil;
 
 /**
  *
@@ -29,28 +30,23 @@ import services.ProductService;
 public class MainServlet extends HttpServlet {
 
     private ProductService productService = new ProductService();
-    private List<Product> products = new ArrayList<>();
     private AbstractDao categoryDao = new CategoryDao();
-    private final AbstractDao shoppingCartDao = new ShoppingCartDao();
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.products = productService.findAll();
-        List<ShoppingCart> shoppingCarts = shoppingCartDao.findAll(ShoppingCart.class);
-        //todo DOHVATIT ZA USERA POSEBNO
-        ShoppingCart shoppingCart = shoppingCarts.get(1);
-        int productsQuantitySum = shoppingCart.getShoppingCartProducts()
-                .stream()
-                .mapToInt(ShoppingCartProduct::getQuantity).sum();
-        BigDecimal productsPricesSum = shoppingCart.getShoppingCartProducts()
-                .stream()
-                .map(sp -> sp.getProduct().getPrice())
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-        request.getSession().setAttribute("productsPricesSum", productsPricesSum);
+
+        int productsQuantitySum = 0;
+
+        ShoppingCart shoppingCart = (ShoppingCart)request.getSession().getAttribute("shoppingCart");
+        if (shoppingCart == null) {
+            request.getSession().setAttribute("shoppingCart", new ShoppingCart());
+        } else {
+            productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
+        }
+        
         request.getSession().setAttribute("shoppingCartProductsQuantitySum", productsQuantitySum);
-        request.getSession().setAttribute("shoppingCart", shoppingCart);
-        request.getSession().setAttribute("products", products);
+        request.getSession().setAttribute("products", productService.findAll());
         request.getSession().setAttribute("categories", categoryDao.findAll(Category.class));
         response.sendRedirect("main.jsp");
     }
@@ -59,4 +55,5 @@ public class MainServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
+
 }

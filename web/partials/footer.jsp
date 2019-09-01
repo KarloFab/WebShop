@@ -22,8 +22,8 @@
         <div class="bottommenu">
             <ul class="nav nav-tabs bottomlinks">
                 <li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-                <li role="presentation"><a href="#/">CATEGORIES</a></li>
-                <li role="presentation"><a href="#/">CONTACT US</a></li>
+                <li role="presentation" ><a href="#/" role="button">CATEGORIES</a></li>
+                <li role="presentation"><a href="/WebShop/Contact">CONTACT US</a></li>
             </ul>
             <p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
                 eiusmod tempor incididunt </p>

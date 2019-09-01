@@ -31,7 +31,7 @@
                                     <input type="submit" id="${sc.product.idproduct}" value="-" name="remove" class="btn btn-secondary"/>
                                     <input type="hidden" value="${sc.product.idproduct}" name="productId">
                                 </form>
-                                <form action="/WebShop/RemoveShoppingCartProduct" method="post">
+                                <form action="/WebShop/RemoveShoppingCartProductServlet" method="post">
                                     <input type="hidden" value="${sc.product.idproduct}" name="productId" >
                                     <input type="submit" value="Remove product from shopping cart" class="btn btn-secondary">
                                 </form>

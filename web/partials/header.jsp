@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,8 +32,15 @@
                     <li>Store </li>
                 </ul>
                 <ul class="logreg">
-                    <li><a href="/WebShop/Login">Login </a> </li>
-                    <li><a href="/WebShop/UserRegistration"><span class="register">Register</span></a></li>
+                    <c:choose>
+                        <c:when test="${user != null}">
+                            <li><a href="/WebShop/LogoutServlet">Log Out </a> </li>
+                            </c:when>
+                            <c:otherwise>
+                            <li><a href="/WebShop/Login">Log In |</a></li>
+                            <li><a href="/WebShop/UserRegistration">Register </a> </li>
+                            </c:otherwise>
+                        </c:choose>
                 </ul>
             </div>
             <nav class="topnavbar navbar-default topnav">
@@ -46,17 +54,26 @@
                             <ul class="dropdown-menu dropdowncostume">
                                 <c:forEach items="${categories}" var="c" >
                                     <li><a href="#">${c.name}</a></li>
-                                </c:forEach>
+                                    </c:forEach>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="contact.html">CONTACT</a>
                         </li>
                         <li>
                             <a href="/WebShop/AddProduct">ADD PRODUCT</a>
                         </li>
                         <li>
-                            <a href="/WebShop/ShoppingHistory">Shopping History</a>
+                            <c:if test="${not empty user}" >
+                                <a href="/WebShop/ShoppingHistory">Shopping History</a>
+                            </c:if>
+                        </li>
+                        <li>
+                            <c:if test="${not empty user}" >
+                                <a href="/WebShop/UsersShoppingHistory">Users Shopping History</a>
+                            </c:if>
+                        </li>
+                        <li>
+                            <c:if test="${not empty user}" >
+                                <a href="/WebShop/UsersLoginHistory">Users Activity History</a>
+                            </c:if>
                         </li>
                     </ul>
                     <i class="fa" style="font-size:10px">                    

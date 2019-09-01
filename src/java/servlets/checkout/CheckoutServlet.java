@@ -5,12 +5,18 @@
  */
 package servlets.checkout;
 
+import entites.Bill;
+import entites.ShoppingCart;
+import entites.User;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.math.BigDecimal;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import repositories.AbstractDao;
+import repositories.BillDao;
+import repositories.ShoppingCartDao;
 
 /**
  *
@@ -18,23 +24,43 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CheckoutServlet extends HttpServlet {
 
+    private AbstractDao billDao = new BillDao();
+    private AbstractDao shoppingCartDao = new ShoppingCartDao();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute("shoppingCart");
+        BigDecimal productsPricesSum = BigDecimal.ZERO;
+        if (shoppingCart != null) {
+            productsPricesSum = shoppingCart.getShoppingCartProducts()
+                    .stream()
+                    .map(sp -> sp.getProduct().getPrice())
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+        }
+        request.getSession().setAttribute("productsPricesSum", productsPricesSum);
         response.sendRedirect("checkout.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getSession().getAttribute("username").toString();
-        String password = request.getSession().getAttribute("password").toString();
+        User user = (User) request.getSession().getAttribute("user");
 
-        //TODO check properly AND CHECK IF USER EXISTS OR NOT, IF IT DOESNT EXITS THEN REDIRECT
-       
-        if(!username.equals("a") && !password.equals("a")){
-            response.sendRedirect("login.jsp");
-        }
+        ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute("shoppingCart");
+        shoppingCart.setIsBought(Boolean.TRUE);
+
+        shoppingCartDao.update(shoppingCart);
+
+        Bill bill = new Bill();
+        bill.setShoppingCart(shoppingCart);
+        bill.setStore(null);
+        bill.setUser(user);
+
+        billDao.save(bill);
+
+        request.getSession().setAttribute("shoppingCart", new ShoppingCart());
+        request.getSession().setAttribute("shoppingCartProductsQuantitySum", 0);
+        response.sendRedirect("main.jsp");
     }
 }

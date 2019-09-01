@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.ShoppingCartDao;
+import servlets.utils.ShoppingCartUtil;
 
 /**
  *
@@ -22,6 +23,7 @@ import repositories.ShoppingCartDao;
 public class AddRemoveProductServlet extends HttpServlet {
 
     private AbstractDao shoppingCartDao = new ShoppingCartDao();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,6 +50,8 @@ public class AddRemoveProductServlet extends HttpServlet {
             }
         }
         shoppingCartDao.update(shoppingCartProduct);
+        int productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
+        request.getSession().setAttribute("shoppingCartProductsQuantitySum", productsQuantitySum);
         response.sendRedirect("shoppingCartProducts.jsp");
     }
 }
