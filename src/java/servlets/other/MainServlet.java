@@ -35,7 +35,6 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         int productsQuantitySum = 0;
 
         ShoppingCart shoppingCart = (ShoppingCart)request.getSession().getAttribute("shoppingCart");
