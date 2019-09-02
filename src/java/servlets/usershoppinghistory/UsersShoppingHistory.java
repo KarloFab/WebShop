@@ -7,6 +7,8 @@ package servlets.usershoppinghistory;
 
 import entites.Bill;
 import java.io.IOException;
+import java.util.List;
+import static java.util.stream.Collectors.toList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +34,13 @@ public class UsersShoppingHistory extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String usrenameToSearch = request.getParameter("username");
+        List<Bill> bills = billDao.findAll(Bill.class);
+        bills = bills.stream()
+                .filter(bill -> bill.getUser().getUsername().equals(usrenameToSearch))
+                .collect(toList());
+        request.setAttribute("bills", bills);
+        
+        response.sendRedirect("usersShoppingHistory.jsp");
     }
 }

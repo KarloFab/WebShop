@@ -16,9 +16,8 @@
     <body>
         <%@include file="partials/header.jsp" %>
         <input class="form-control" name="username" type="text" placeholder="Search by Username.." style="width:200px;display:inline-block;">
-        <input class="form-control" id="myInput" type="text" placeholder="Search by " style="width:200px;display:inline-block;">
-        <form action="/WebShop/UserDetails" method="get">
-            <input type="submit"  value="Search" name="userShoppingSearch" class="btn btn-secondary" style="margin-top:10px;"/>
+        <form action="/WebShop/UsersShoppingHistory" method="post">
+            <input type="submit"  value="Search" name="username" class="btn btn-secondary" style="margin-top:10px;"/>
         </form>
         <c:forEach items="${bills}" var="b" >
             <h3>${b.user.username}</h3>
