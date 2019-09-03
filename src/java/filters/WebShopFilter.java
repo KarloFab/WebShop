@@ -43,7 +43,8 @@ public class WebShopFilter implements Filter {
 
         HttpSession session = httpRequest.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
+            httpRequest.setAttribute("message", "Please login to proceed with checkout!");
+            httpRequest.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             chain.doFilter(request, response);
         }

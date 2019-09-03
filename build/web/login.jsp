@@ -20,6 +20,7 @@
             <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
+        <p>${message}</p>
         <div id="formFooter">
             <a class="forgotPassword" href="/WebShop/UserRegistration">Register</a>
             <br/>

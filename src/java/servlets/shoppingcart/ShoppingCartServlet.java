@@ -34,7 +34,6 @@ public class ShoppingCartServlet extends HttpServlet {
             throws ServletException, IOException {
         if (request.getSession().getAttribute("shoppingCart") == null) {
             List<ShoppingCart> shoppingCarts = shoppingCartDao.findAll(ShoppingCart.class);
-            //nac za usera posebno
             if (!shoppingCarts.isEmpty()) {
                 request.getSession().setAttribute("shoppingCart", shoppingCarts.get(0));
             } else {

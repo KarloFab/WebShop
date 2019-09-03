@@ -26,11 +26,11 @@ public class LoginServlet extends HttpServlet {
 
     private UserService userService = new UserService();
     private AbstractDao userLoginHistoryDao = new UserLoginHistoryDao();
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     @Override
@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("Main");
         } else {
             request.getSession().setAttribute("user", null);
-            response.sendRedirect("userRegistration.jsp");
+            request.setAttribute("message", "Wrong credentials");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }

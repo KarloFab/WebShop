@@ -31,23 +31,23 @@ public class MainServlet extends HttpServlet {
 
     private ProductService productService = new ProductService();
     private AbstractDao categoryDao = new CategoryDao();
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int productsQuantitySum = 0;
 
-        ShoppingCart shoppingCart = (ShoppingCart)request.getSession().getAttribute("shoppingCart");
+        ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute("shoppingCart");
         if (shoppingCart == null) {
             request.getSession().setAttribute("shoppingCart", new ShoppingCart());
         } else {
             productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
         }
-        
+
         request.getSession().setAttribute("shoppingCartProductsQuantitySum", productsQuantitySum);
         request.getSession().setAttribute("products", productService.findAll());
         request.getSession().setAttribute("categories", categoryDao.findAll(Category.class));
-        response.sendRedirect("main.jsp");
+        request.getRequestDispatcher("main.jsp").forward(request, response);
     }
 
     @Override

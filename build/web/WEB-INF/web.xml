@@ -8,6 +8,10 @@
         <filter-name>WebShopFilter</filter-name>
         <url-pattern>/CheckoutServlet</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>WebShopFilter</filter-name>
+        <url-pattern>/checkout.jsp</url-pattern>
+    </filter-mapping>
     <filter>
         <filter-name>AdminFilter</filter-name>
         <filter-class>filters.AdminFilter</filter-class>
@@ -16,7 +20,11 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/UserLoginHistory</url-pattern>
     </filter-mapping>
-        <filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/product/addProduct.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/UserDetails</url-pattern>
     </filter-mapping>
