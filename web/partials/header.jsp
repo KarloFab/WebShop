@@ -47,7 +47,7 @@
             <nav class="topnavbar navbar-default topnav">
                 <div class="collapse navbar-collapse" id="upmenu">
                     <ul class="nav navbar-nav" id="navbarontop">
-                        <li class="active"><a href="/WebShop/Main">HOME</a></li>
+                        <li><a href="/WebShop/Main">HOME</a></li>
                         <li class="dropdown">
                             <a href="/WebShop/Categories" class="dropdown-toggle" data-toggle="dropdown" 
                                role="button" aria-haspopup="true"

@@ -17,7 +17,7 @@
         <div id="userDetails" style="margin-left:100px;">
             <h3>Username: ${user.username}</h3>
             <hr>
-            <h4>Email address: ${user.emailAdress}</h4>
+            <h4>Email address: ${user.emailAddress}</h4>
             <hr>
             <h4>First name: ${user.firstName}</h4>
             <hr>

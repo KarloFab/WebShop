@@ -12,13 +12,25 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Users Shopping History</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+        <script>
+            $(function () {
+                $("#datepickerFrom").datepicker();
+                $("#datepickerTo").datepicker();
+            });
+        </script>
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
         <input class="form-control" name="username" type="text" placeholder="Search by Username.." style="width:200px;display:inline-block;">
+        <input type="text" placeholder="Date from..." class="form-control" id="datepickerFrom" style="width:200px;display:inline-block;">
+        <input type="text" placeholder="Date to..." class="form-control" id="datepickerTo" style="width:200px;display:inline-block;">
         <form action="/WebShop/UsersShoppingHistory" method="post">
             <input type="submit"  value="Search" name="username" class="btn btn-secondary" style="margin-top:10px;"/>
         </form>
+
         <c:forEach items="${bills}" var="b" >
             <h3>${b.user.username}</h3>
             <hr>
