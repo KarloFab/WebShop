@@ -29,8 +29,8 @@
                     Roles
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <c:forEach var="userRole" items="${user.userRoles}">
-                        <a class="dropdown-item" href="#">${userRole.role.name}</a>
+                    <c:forEach var="role" items="${roles}">
+                        <a class="dropdown-item" href="#">${role.name}</a>
                     </c:forEach>
                 </div>
             </div>

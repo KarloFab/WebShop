@@ -24,11 +24,13 @@
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
-        <input class="form-control" name="username" type="text" placeholder="Search by Username.." style="width:200px;display:inline-block;">
-        <input type="text" placeholder="Date from..." name="dateFrom" class="form-control" id="datepickerFrom" style="width:200px;display:inline-block;">
-        <input type="text" placeholder="Date to..." name="dateTo" class="form-control" id="datepickerTo" style="width:200px;display:inline-block;">
+
         <form action="/WebShop/UsersShoppingHistory" method="post">
-            <input type="submit"  value="Search" name="username" class="btn btn-secondary" style="margin-top:10px;"/>
+
+            <input class="form-control" name="username" type="text" placeholder="Search by Username.." style="width:200px;display:inline-block;">
+            <input type="text" placeholder="Date from..." name="dateFrom" class="form-control" id="datepickerFrom" style="width:200px;display:inline-block;">
+            <input type="text" placeholder="Date to..." name="dateTo" class="form-control" id="datepickerTo" style="width:200px;display:inline-block;">
+            <input type="submit"  value="Search" name="username" class="btn btn-secondary" style="margin-left:10px;"/>
         </form>
 
         <c:forEach items="${bills}" var="b" >

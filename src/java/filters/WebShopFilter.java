@@ -39,8 +39,7 @@ public class WebShopFilter implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+        
         HttpSession session = httpRequest.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
             httpRequest.setAttribute("message", "Please login to proceed with checkout!");

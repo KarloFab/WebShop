@@ -35,12 +35,15 @@ public class UsersShoppingHistory extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usrenameToSearch = request.getParameter("username");
+        String dateFrom = request.getParameter("dateFrom");
+        String dateTo = request.getParameter("dateTo");
+
         List<Bill> bills = billDao.findAll(Bill.class);
         bills = bills.stream()
                 .filter(bill -> bill.getUser().getUsername().equals(usrenameToSearch))
                 .collect(toList());
         request.setAttribute("bills", bills);
-        
+
         response.sendRedirect("usersShoppingHistory.jsp");
     }
 }
