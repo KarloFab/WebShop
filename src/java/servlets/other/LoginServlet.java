@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.UserLoginHistoryDao;
 import services.UserService;
+import servlets.utils.UserUtil;
 
 /**
  *
@@ -44,9 +45,14 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             userLoginHistoryDao.save(new UserLoginHistory(user, request.getRemoteAddr(), new Date()));
             request.getSession().setAttribute("user", user);
+
+            if (UserUtil.isUserAdmin(user)) {
+                request.getSession().setAttribute("isAdmin", true);
+            }
+            request.getSession().setAttribute("user", user);
             response.sendRedirect("Main");
         } else {
-            request.getSession().setAttribute("user", null);
+            request.getSession().invalidate();
             request.setAttribute("message", "Wrong credentials");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }

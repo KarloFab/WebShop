@@ -58,21 +58,24 @@
                                     </c:forEach>
                             </ul>
                         </li>
-                        <li>
-                            <a href="/WebShop/AddProduct">ADD PRODUCT</a>
-                        </li>
+                        <c:if test="${isAdmin}">
+                            <li>
+
+                                <a href="/WebShop/AddProduct">ADD PRODUCT</a>
+                            </li>
+                        </c:if>
                         <li>
                             <c:if test="${not empty user}" >
                                 <a href="/WebShop/ShoppingHistory">Shopping History</a>
                             </c:if>
                         </li>
                         <li>
-                            <c:if test="${not empty user}" >
+                            <c:if test="${isAdmin}">
                                 <a href="/WebShop/UsersShoppingHistory">Users Shopping History</a>
                             </c:if>
                         </li>
                         <li>
-                            <c:if test="${not empty user}" >
+                            <c:if test="${isAdmin}">
                                 <a href="/WebShop/UsersLoginHistory">Users Activity History</a>
                             </c:if>
                         </li>

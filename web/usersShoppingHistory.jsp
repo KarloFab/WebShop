@@ -60,11 +60,13 @@
                         <th></th>
                         <th scope="col">Price Sum</th>
                         <th scope="col">Quantity Sum</th>
+                        <th scope="col">Payment Method</th>
                     </tr>
                     <tr>
                         <td></td>
                         <td>${productsPricesSum}</td>
                         <td>${shoppingCartProductsQuantitySum}</td>
+                        <td>${b.paymentMethod.getName()}</td>
                     </tr>
                 </tfoot>
             </table>

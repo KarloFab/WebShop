@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Checkout Page</title>
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
@@ -44,9 +44,33 @@
                 </tr>
             </tfoot>
         </table>
+        <input id="price" type="hidden" value="${productsPricesSum}" />
+        <h3>Pay by:</h3>
         <form action="/WebShop/CheckoutServlet" method="post">
-            <input type="submit" value="BUY" class="btn btn-secondary">
+            <input type="submit" value="Cash-Delivery" name="Cash-Delivery" id="cash-btn" class="btn btn-secondary">
+            <input type="submit" value="PayPal"   name="PayPal" id="paypal-btn" class="btn btn-secondary" style="display:none;">
         </form>
-        <%@include file="partials/footer.jsp" %>
+        <div id="paypal-button-container"></div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+        <script>
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    var price = (document.getElementById("price").value);
+                    return actions.order.create({
+                        purchase_units: [{
+                                amount: {
+                                    value: price
+                                }
+                            }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        document.getElementById("paypal-btn").click();
+                    });
+                }
+            }).render('#paypal-button-container');
+        </script>
+        <%@include file="partials/footer.jsp" %>    
     </body>
 </html>

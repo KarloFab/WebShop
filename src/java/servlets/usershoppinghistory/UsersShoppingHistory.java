@@ -7,6 +7,7 @@ package servlets.usershoppinghistory;
 
 import entites.Bill;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 import javax.servlet.ServletException;
@@ -40,7 +41,9 @@ public class UsersShoppingHistory extends HttpServlet {
 
         List<Bill> bills = billDao.findAll(Bill.class);
         bills = bills.stream()
-                .filter(bill -> bill.getUser().getUsername().equals(usrenameToSearch))
+                .filter(bill -> bill.getUser().getUsername().equals(usrenameToSearch) && 
+                        bill.getDate().before(new Date(dateFrom)) &&
+                        bill.getDate().after(new Date(dateTo)))
                 .collect(toList());
         request.setAttribute("bills", bills);
 

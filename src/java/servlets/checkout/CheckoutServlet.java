@@ -6,16 +6,19 @@
 package servlets.checkout;
 
 import entites.Bill;
+import entites.PaymentMethod;
 import entites.ShoppingCart;
 import entites.User;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.BillDao;
+import repositories.PaymentMethodDao;
 import repositories.ShoppingCartDao;
 
 /**
@@ -26,6 +29,7 @@ public class CheckoutServlet extends HttpServlet {
 
     private AbstractDao billDao = new BillDao();
     private AbstractDao shoppingCartDao = new ShoppingCartDao();
+    private AbstractDao paymentMethodDao = new PaymentMethodDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,10 +56,29 @@ public class CheckoutServlet extends HttpServlet {
 
         shoppingCartDao.update(shoppingCart);
 
+        List<PaymentMethod> paymentMethods = paymentMethodDao.findAll(PaymentMethod.class);
+        String payPal = request.getParameter("PayPal");
+        String cashDelivery = request.getParameter("Cash-Delivery");
+        PaymentMethod paymentMethod = null;
+
+        if (payPal != null) {
+            paymentMethod = paymentMethods.stream()
+                    .filter(pm -> pm.getName().equals(payPal))
+                    .findFirst()
+                    .orElse(null);
+
+        } else if (request.getAttribute(cashDelivery) != null) {
+            paymentMethod = paymentMethods.stream()
+                    .filter(pm -> pm.getName().equals(cashDelivery))
+                    .findFirst()
+                    .orElse(null);
+        }
+
         Bill bill = new Bill();
         bill.setShoppingCart(shoppingCart);
         bill.setStore(null);
         bill.setUser(user);
+        bill.setPaymentMethod(paymentMethod);
 
         billDao.save(bill);
 
