@@ -7,7 +7,6 @@ package servlets.utils;
 
 import entites.ShoppingCart;
 import entites.ShoppingCartProduct;
-import entites.User;
 
 /**
  *

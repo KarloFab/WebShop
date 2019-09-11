@@ -33,6 +33,8 @@
             <input type="submit"  value="Search" name="username" class="btn btn-secondary" style="margin-left:10px;"/>
         </form>
 
+        <p>${message}</p>
+        
         <c:forEach items="${bills}" var="b" >
             <h3>${b.user.username}</h3>
             <hr>

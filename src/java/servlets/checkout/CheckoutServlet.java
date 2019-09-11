@@ -11,6 +11,8 @@ import entites.ShoppingCart;
 import entites.User;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -79,6 +81,7 @@ public class CheckoutServlet extends HttpServlet {
         bill.setStore(null);
         bill.setUser(user);
         bill.setPaymentMethod(paymentMethod);
+        bill.setDate(new Date());
 
         billDao.save(bill);
 

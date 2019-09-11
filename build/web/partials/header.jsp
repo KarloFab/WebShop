@@ -14,6 +14,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -24,10 +25,9 @@
         <div class="allcontain">
             <div class="header">
                 <ul class="socialicon">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="http://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
                 </ul>
                 <ul class="store">
                     <li>Store </li>
@@ -49,12 +49,12 @@
                     <ul class="nav navbar-nav" id="navbarontop">
                         <li><a href="/WebShop/Main">HOME</a></li>
                         <li class="dropdown">
-                            <a href="/WebShop/Categories" class="dropdown-toggle" data-toggle="dropdown" 
+                            <a class="dropdown-toggle" data-toggle="dropdown" 
                                role="button" aria-haspopup="true"
                                aria-expanded="false">CATEGORIES <span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdowncostume">
+                            <ul class="dropdown-menu dropdowncostume" aria-labelledby="dropdownMenuButton">
                                 <c:forEach items="${categories}" var="c" >
-                                    <li><a href="#">${c.name}</a></li>
+                                    <li><a href="/WebShop/Categories?category=${c.name}" class="dropdown-item">${c.name}</a></li>
                                     </c:forEach>
                             </ul>
                         </li>

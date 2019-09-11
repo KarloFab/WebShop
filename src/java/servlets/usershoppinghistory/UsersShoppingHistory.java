@@ -7,6 +7,7 @@ package servlets.usershoppinghistory;
 
 import entites.Bill;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.BillDao;
+import servlets.utils.BillFilterUtil;
 
 /**
  *
@@ -35,18 +37,20 @@ public class UsersShoppingHistory extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usrenameToSearch = request.getParameter("username");
+        String usernameToSearch = request.getParameter("username");
         String dateFrom = request.getParameter("dateFrom");
         String dateTo = request.getParameter("dateTo");
-
         List<Bill> bills = billDao.findAll(Bill.class);
-        bills = bills.stream()
-                .filter(bill -> bill.getUser().getUsername().equals(usrenameToSearch) && 
-                        bill.getDate().before(new Date(dateFrom)) &&
-                        bill.getDate().after(new Date(dateTo)))
-                .collect(toList());
-        request.setAttribute("bills", bills);
 
-        response.sendRedirect("usersShoppingHistory.jsp");
+        bills = BillFilterUtil.filterBillsByUsernameAndShoppingDateBetween(bills, usernameToSearch, dateFrom, dateTo);
+
+        if (bills.isEmpty()) {
+            request.getSession().setAttribute("bills", null);
+            request.setAttribute("message", "No records found!");
+        } else {
+            request.setAttribute("bills", bills);
+        }
+
+        request.getRequestDispatcher("usersShoppingHistory.jsp").forward(request, response);
     }
 }
