@@ -11,7 +11,6 @@ import entites.ShoppingCart;
 import entites.User;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -22,6 +21,7 @@ import repositories.AbstractDao;
 import repositories.BillDao;
 import repositories.PaymentMethodDao;
 import repositories.ShoppingCartDao;
+import services.ShoppingCartService;
 
 /**
  *
@@ -81,7 +81,7 @@ public class CheckoutServlet extends HttpServlet {
         bill.setPaymentMethod(paymentMethod);
         bill.setDate(new Date());
 
-        shoppingCartDao.update(shoppingCart);
+        shoppingCartDao.save(shoppingCart);
         billDao.save(bill);
 
         request.getSession().setAttribute("shoppingCart", new ShoppingCart());

@@ -28,7 +28,7 @@ public class ProductServlet extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("productId"));
         Product product = productService.findById(productId);
         request.getSession().setAttribute("product", product);
-            response.sendRedirect("product/product.jsp");
+            response.sendRedirect("product.jsp");
     }
 
     /**

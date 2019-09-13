@@ -15,40 +15,49 @@
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
-        <c:forEach items="${bills}" var="b" >
-            <h3><fmt:formatDate type="both" value="${b.date}"/></h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${b.shoppingCart.shoppingCartProducts}" var="scp" >
-                        <tr>
-                            <td>${scp.product.name}</td>
-                            <td>${scp.product.price}</td>
-                            <td>${scp.quantity}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Price Sum</th>
-                        <th scope="col">Quantity Sum</th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>${productsPricesSum}</td>
-                        <td>${shoppingCartProductsQuantitySum}</td>
-                    </tr>
-                </tfoot>
-            </table>
-            <br>
-        </c:forEach>
+        <div style="padding:30px;">
+            <c:choose>
+                <c:when test="${!bills.isEmpty()}">
+                    <c:forEach items="${bills}" var="b" >
+                        <h3><fmt:formatDate type="both" value="${b.date}"/></h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${b.shoppingCart.shoppingCartProducts}" var="scp" >
+                                    <tr>
+                                        <td>${scp.product.name}</td>
+                                        <td>${scp.product.price}</td>
+                                        <td>${scp.quantity}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th scope="col">Price Sum</th>
+                                    <th scope="col">Quantity Sum</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>${productsPricesSum}</td>
+                                    <td>${shoppingCartProductsQuantitySum}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br>
+                    </c:forEach> 
+                </c:when>
+                <c:otherwise>
+                    <h1 style="text-align:center;margin-top:50px;">You don't have any purchases yet.</h1>
+                </c:otherwise>
+            </c:choose>
+        </div>
         <%@include file="partials/footer.jsp" %>
     </body>
 </html>

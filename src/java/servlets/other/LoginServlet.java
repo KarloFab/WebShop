@@ -8,7 +8,6 @@ package servlets.other;
 import entites.User;
 import entites.UserLoginHistory;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

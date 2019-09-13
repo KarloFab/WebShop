@@ -96,7 +96,6 @@
 }
 
 #navbarontop{
-    padding-left: 312px;
     padding-top: 17px;
     height:69px; 
 }
@@ -106,14 +105,12 @@
 }
 #navbarontop > li > a {
     font-family: 'BebasNeue Regular';
-    font-size: 17px;
+    font-size: 21px;
     color: #313943;
     padding-top: 5px;
     padding-bottom: 6px;
     margin-bottom: 22px;
-    padding-left: 10px;
     padding-right: 10px!important;
-    margin-left: 34px;
     border-bottom: 2px solid rgba(0,0,0,.0);
 
 }
@@ -126,13 +123,11 @@
 
 #navbarontop>button{
     background: none;
-    background-color: none;
     border: 2px solid #C59E47;
     font-family: 'BebasNeue Regular';
     margin-left: 60px;
     font-size: 16.99px;
     color: #313943;
-    padding-left: 19px;
     padding-right: 19px;
     padding-top: -2px;
     padding-bottom:-2px;
@@ -342,16 +337,6 @@
         width: 100px;
         font-size: 10px;
     }
-    #slider-range{
-        width: 130px!important;
-    }
-    .li-slideprice>p{
-        font-size: 10px;
-        width: 132px;
-    }
-    .li-slideprice{
-        width: 135px;
-    }
     .navbarborder>li>a{
         font-size: 12px;
         padding-left: 5px;
@@ -474,9 +459,6 @@
     border-top: 1px solid #BABABA;
     border-bottom: 1px solid #BABABA;	
 }
-.txt1colon{
-    width:300px;
-}
 .featurecontant{
     width:85%;
     height: auto;
@@ -544,97 +526,6 @@
     max-width:46.3%;
 
 }
-.img2colon>img{
-    width: 100%;
-}
-#readmore{
-    overflow-y: auto;
-    position: absolute;
-    background-color: black;
-    top:0px;
-    margin-top: 30px;
-    height: 0px;
-    max-width: 290px;
-}
-#readmore>h1{
-    text-align: center;
-    font-family: "OpenSans Regular";
-    color: #5B5B5B;
-    font-size: 19.8px;
-}
-#readmore>p{
-    font-family: "OpenSans Regular";
-    font-size: 11.44px;
-    text-align: center;
-    color: #5B5B5B;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-#readmore>button{
-    background: none;
-    border: 1px solid #020243; 
-    font-family: "OpenSans Regular";
-    font-size: 19px;
-    color:#020243;
-    letter-spacing: 5px;
-    width: 70%;
-    margin-left: 17%;
-    margin-bottom: 26px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-#readmore>button:hover{
-    background: #020243;
-    color: white;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in; 
-} 
-#readmore2{
-    overflow-y: auto;
-    position: absolute;
-    background-color: black;
-    top:0px;
-    margin-top: 30px;
-    height: 0px;
-    max-width: 290px;
-}
-#readmore2>h1{
-    text-align: center;
-    font-family: "OpenSans Regular";
-    color: #5B5B5B;
-    font-size: 19.8px;
-}
-#readmore2>p{
-    font-family: "OpenSans Regular";
-    font-size: 11.44px;
-    text-align: center;
-    color: #5B5B5B;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-#readmore2>button{
-    background: none;
-    border: 1px solid #020243; 
-    font-family: "OpenSans Regular";
-    font-size: 19px;
-    color:#020243;
-    letter-spacing: 5px;
-    width: 68%;
-    margin-left: 17%;
-    margin-bottom: 26px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-#readmore2>button:hover{
-    background: #020243;
-    color: #fff;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in; 
-}
 
 @media screen and (max-width: 1198px){
     .featurecontant{
@@ -693,12 +584,6 @@
         max-width: 320px;
         margin-right: auto;
         margin-left: auto;
-    }
-    #readmore{
-        max-width: 99%;
-    }
-    #readmore2{
-        max-width: 99%;
     }
 }
 /*------------------------------------- Bottom Menu -----------------------------------------------*/
@@ -926,3 +811,133 @@
     position: relative;
     min-height: 60vh;
 }
+
+/* ------------------------- BUTTONS ------------------------- */
+
+.buttons {
+	overflow: hidden;
+}
+
+.buttons > div {
+	width: calc(50% - 40px);
+	padding: 20px;
+	float: left;
+	position: fixed;
+	bottom: 0;
+	top: 0;
+}
+.buttons .dark {
+	background: #000;
+	left: 50%;
+}
+.buttons a {
+	float: left; 
+	margin-right: 20px;
+  margin-bottom: 20px;
+}
+a#link {position: absolute; left: 20px; bottom: 10px; text-decoration: none; color: #555; font-weight: bold;}
+.btn,
+input[type="submit"]{
+	cursor: pointer;
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 12px;
+    line-height: 19px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif; font-weight:400;
+    letter-spacing: 3px;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+
+.btn-mid {
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 14px 21px;
+    font-size: 13px;
+    line-height: 25px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif; font-weight:400;
+    letter-spacing: 3px;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+
+.btn-big {
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 18px 24px;
+    font-size: 14px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif; font-weight:400;
+    letter-spacing: 3px;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+.btn:hover,
+input[type="submit"]:hover{
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+.btn-white{
+    border:solid 2px #fff;
+    background-color: black !important; 
+    color: #fff !important;
+}
+.btn-white:hover{
+    border:solid 2px #fff;
+    background-color: white !important;
+    color:black !important;
+}
+
+.btn-dark,
+input[type="submit"]{
+    border:solid 2px #1f1f1f;
+    background: transparent;
+    color: #1f1f1f;
+}
+.btn-dark:hover,
+input[type="submit"]:hover,
+.btn-dark.active{
+    border:solid 2px #1f1f1f;
+    background: #1f1f1f;
+    color: #fff;
+}
+
+.btn-color{
+    background: transparent;
+}
+.btn-color:hover{
+    color: #fff;
+}
+
+/* [1] The container */
+.img-hover-zoom {
+  height: 250px; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+

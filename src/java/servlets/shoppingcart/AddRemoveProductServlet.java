@@ -49,7 +49,6 @@ public class AddRemoveProductServlet extends HttpServlet {
                 shoppingCartProduct.setQuantity(--quantity);
             }
         }
-        shoppingCartDao.update(shoppingCartProduct);
         int productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
         request.getSession().setAttribute("shoppingCartProductsQuantitySum", productsQuantitySum);
         response.sendRedirect("shoppingCartProducts.jsp");

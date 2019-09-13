@@ -25,7 +25,7 @@
                         <li role="presentation" ><a href="#/" role="button">CATEGORIES</a></li>
                         <li role="presentation"><a href="/WebShop/Contact">CONTACT US</a></li>
                     </ul>
-                    <p>WebShop-JavaWeb</p>
+                    <p>WebShop | JavaWeb</p>
                     <div class="bottomsocial">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>

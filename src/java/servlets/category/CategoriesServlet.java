@@ -23,6 +23,7 @@ public class CategoriesServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         List<Product> products = (List<Product>) request.getSession().getAttribute("products");
         String selectedCategory = request.getParameter("category");
         products = products.stream()
@@ -31,13 +32,7 @@ public class CategoriesServlet extends HttpServlet {
                                 .equals(selectedCategory)))
                 .collect(toList());
 
-        if (products.isEmpty()) {
-            request.getSession().setAttribute("products", null);
-
-        } else {
-            request.getSession().setAttribute("products", products);
-        }
-
+        request.getSession().setAttribute("productsFiltered", products);
         response.sendRedirect("main.jsp");
     }
 

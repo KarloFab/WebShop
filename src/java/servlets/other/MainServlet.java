@@ -8,10 +8,7 @@ package servlets.other;
 import entites.Category;
 import entites.Product;
 import entites.ShoppingCart;
-import entites.ShoppingCartProduct;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.CategoryDao;
-import repositories.ShoppingCartDao;
 import services.ProductService;
 import servlets.utils.ShoppingCartUtil;
 
@@ -30,7 +26,7 @@ import servlets.utils.ShoppingCartUtil;
 public class MainServlet extends HttpServlet {
 
     private ProductService productService = new ProductService();
-    private AbstractDao categoryDao = new CategoryDao();
+    private final AbstractDao categoryDao = new CategoryDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,8 +38,11 @@ public class MainServlet extends HttpServlet {
             productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
         }
 
+        List<Product> products =  productService.findAll();
+        
         request.getSession().setAttribute("shoppingCartProductsQuantitySum", productsQuantitySum);
-        request.getSession().setAttribute("products", productService.findAll());
+        request.getSession().setAttribute("products", products);
+        request.getSession().setAttribute("productsFiltered", products);
         request.getSession().setAttribute("categories", categoryDao.findAll(Category.class));
         request.getRequestDispatcher("main.jsp").forward(request, response);
     }

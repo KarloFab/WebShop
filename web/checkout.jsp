@@ -14,6 +14,7 @@
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
+                <div style="padding:30px;">
         <table class="table">
             <thead>
                 <tr>
@@ -46,11 +47,12 @@
         </table>
         <input id="price" type="hidden" value="${productsPricesSum}" />
         <h3>Pay by:</h3>
-        <form action="/WebShop/CheckoutServlet" method="post">
+        <form action="/WebShop/CheckoutServlet" method="post" style="display: inline-block;float:left;">
             <input type="submit" value="Cash-Delivery" name="Cash-Delivery" id="cash-btn" class="btn btn-secondary">
             <input type="submit" value="PayPal"   name="PayPal" id="paypal-btn" class="btn btn-secondary" style="display:none;">
         </form>
-        <div id="paypal-button-container"></div>
+        <div id="paypal-button-container" style='width:70px; display: inline-block; margin-left:70px;'></div>
+        </div>
         <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
         <script>
             paypal.Buttons({

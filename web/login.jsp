@@ -25,6 +25,5 @@
             <a class="forgotPassword" href="/WebShop/UserRegistration">Register</a>
             <br/>
         </div>
-
     </div>
 </div>

@@ -7,10 +7,7 @@ package servlets.usershoppinghistory;
 
 import entites.Bill;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
-import static java.util.stream.Collectors.toList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
