@@ -44,8 +44,8 @@
                         </c:choose>
                 </ul>
             </div>
-            <nav class="topnavbar navbar-default topnav">
-                <div class="collapse navbar-collapse" id="upmenu">
+            <nav class="topnavbar navbar-default">
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" id="navbarontop">
                         <li><a href="/WebShop/Main">HOME</a></li>
                         <li class="dropdown">

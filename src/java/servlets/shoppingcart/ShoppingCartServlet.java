@@ -26,21 +26,10 @@ import repositories.ShoppingCartProductDao;
 public class ShoppingCartServlet extends HttpServlet {
 
     private final AbstractDao productDao = new ProductDao();
-    private final AbstractDao shoppingCartDao = new ShoppingCartDao();
-    private final AbstractDao shoppingCartProductDao = new ShoppingCartProductDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getSession().getAttribute("shoppingCart") == null) {
-            List<ShoppingCart> shoppingCarts = shoppingCartDao.findAll(ShoppingCart.class);
-            if (!shoppingCarts.isEmpty()) {
-                request.getSession().setAttribute("shoppingCart", shoppingCarts.get(0));
-            } else {
-                request.getSession().setAttribute("shoppingCart", new ShoppingCart());
-            }
-
-        }
         response.sendRedirect("shoppingCartProducts.jsp");
     }
 
@@ -66,12 +55,9 @@ public class ShoppingCartServlet extends HttpServlet {
         if (shoppingCartProduct != null) {
             int quantity = shoppingCartProduct.getQuantity();
             shoppingCartProduct.setQuantity(quantity += 1);
-            shoppingCartProductDao.update(shoppingCartProduct);
         } else {
             shoppingCart.getShoppingCartProducts()
                     .add(new ShoppingCartProduct(product, shoppingCart, 1));
-            shoppingCartDao.save(shoppingCart);
-
         }
         response.sendRedirect("Main");
     }

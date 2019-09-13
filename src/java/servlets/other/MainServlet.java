@@ -38,9 +38,7 @@ public class MainServlet extends HttpServlet {
         int productsQuantitySum = 0;
 
         ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute("shoppingCart");
-        if (shoppingCart == null) {
-            request.getSession().setAttribute("shoppingCart", new ShoppingCart());
-        } else {
+        if (shoppingCart != null) {
             productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
         }
 

@@ -56,8 +56,6 @@ public class CheckoutServlet extends HttpServlet {
         ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute("shoppingCart");
         shoppingCart.setIsBought(Boolean.TRUE);
 
-        shoppingCartDao.update(shoppingCart);
-
         List<PaymentMethod> paymentMethods = paymentMethodDao.findAll(PaymentMethod.class);
         String payPal = request.getParameter("PayPal");
         String cashDelivery = request.getParameter("Cash-Delivery");
@@ -83,6 +81,7 @@ public class CheckoutServlet extends HttpServlet {
         bill.setPaymentMethod(paymentMethod);
         bill.setDate(new Date());
 
+        shoppingCartDao.update(shoppingCart);
         billDao.save(bill);
 
         request.getSession().setAttribute("shoppingCart", new ShoppingCart());

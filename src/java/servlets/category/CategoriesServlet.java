@@ -28,11 +28,17 @@ public class CategoriesServlet extends HttpServlet {
         products = products.stream()
                 .filter(p -> p.getProductCategories().stream()
                         .anyMatch(pc -> pc.getCategory().getName()
-                        .equals(selectedCategory)))
+                                .equals(selectedCategory)))
                 .collect(toList());
-       
-        request.getSession().setAttribute("products", products);
-        response.sendRedirect("main.jsp");                
+
+        if (products.isEmpty()) {
+            request.getSession().setAttribute("products", null);
+
+        } else {
+            request.getSession().setAttribute("products", products);
+        }
+
+        response.sendRedirect("main.jsp");
     }
 
     @Override

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.ShoppingCartDao;
+import servlets.utils.ShoppingCartUtil;
 
 /**
  *
@@ -22,12 +23,12 @@ import repositories.ShoppingCartDao;
 public class RemoveShoppingCartProductServlet extends HttpServlet {
 
     private AbstractDao shoppingCartProductDao = new ShoppingCartDao();
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,11 +39,17 @@ public class RemoveShoppingCartProductServlet extends HttpServlet {
             ShoppingCartProduct shoppingCartProduct = shoppingCart
                     .getShoppingCartProducts()
                     .stream()
-                    .filter(sc -> sc.getProduct().getIdproduct() == productId )
+                    .filter(sc -> sc.getProduct().getIdproduct() == productId)
                     .findFirst()
                     .get();
-            shoppingCartProductDao.delete(shoppingCartProduct);
-            response.sendRedirect("ShoppingCartProduct");
+            shoppingCart.getShoppingCartProducts().remove(shoppingCartProduct);
+            int productsQuantitySum = ShoppingCartUtil.getShoppingCartProductsQuantitySum(shoppingCart);
+            request.getSession().setAttribute("shoppingCartProductsQuantitySum", productsQuantitySum);
+
+            if (shoppingCart.getShoppingCartProducts().isEmpty()) {
+                request.getSession().setAttribute("shoppingCart", null);
+            }
+            response.sendRedirect("shoppingCartProducts.jsp");
         }
     }
 }
