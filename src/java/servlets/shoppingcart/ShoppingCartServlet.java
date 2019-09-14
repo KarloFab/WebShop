@@ -9,15 +9,12 @@ import entites.Product;
 import entites.ShoppingCart;
 import entites.ShoppingCartProduct;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import repositories.AbstractDao;
 import repositories.ProductDao;
-import repositories.ShoppingCartDao;
-import repositories.ShoppingCartProductDao;
 
 /**
  *

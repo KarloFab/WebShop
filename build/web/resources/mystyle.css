@@ -815,30 +815,30 @@
 /* ------------------------- BUTTONS ------------------------- */
 
 .buttons {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .buttons > div {
-	width: calc(50% - 40px);
-	padding: 20px;
-	float: left;
-	position: fixed;
-	bottom: 0;
-	top: 0;
+    width: calc(50% - 40px);
+    padding: 20px;
+    float: left;
+    position: fixed;
+    bottom: 0;
+    top: 0;
 }
 .buttons .dark {
-	background: #000;
-	left: 50%;
+    background: #000;
+    left: 50%;
 }
 .buttons a {
-	float: left; 
-	margin-right: 20px;
-  margin-bottom: 20px;
+    float: left; 
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 a#link {position: absolute; left: 20px; bottom: 10px; text-decoration: none; color: #555; font-weight: bold;}
 .btn,
 input[type="submit"]{
-	cursor: pointer;
+    cursor: pointer;
     border-radius: 0px;
     text-decoration: none;
     padding: 12px 18px;
@@ -848,10 +848,10 @@ input[type="submit"]{
     font-family: 'Montserrat', sans-serif; font-weight:400;
     letter-spacing: 3px;
     -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 .btn-mid {
@@ -864,10 +864,10 @@ input[type="submit"]{
     font-family: 'Montserrat', sans-serif; font-weight:400;
     letter-spacing: 3px;
     -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 .btn-big {
@@ -880,18 +880,18 @@ input[type="submit"]{
     font-family: 'Montserrat', sans-serif; font-weight:400;
     letter-spacing: 3px;
     -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 .btn:hover,
 input[type="submit"]:hover{
     -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 .btn-white{
     border:solid 2px #fff;
@@ -927,17 +927,56 @@ input[type="submit"]:hover,
 
 /* [1] The container */
 .img-hover-zoom {
-  height: 250px; /* [1.1] Set it as per your need */
-  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+    height: 250px; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
 }
 
 /* [2] Transition property for smooth transformation of images */
 .img-hover-zoom img {
-  transition: transform .5s ease;
+    transition: transform .5s ease;
 }
 
 /* [3] Finally, transforming the image when container gets hovered */
 .img-hover-zoom:hover img {
-  transform: scale(1.5);
+    transform: scale(1.5);
 }
 
+/* ------------------------- CATEGORY BOX ------------------------- */
+
+#category {
+    background: white;
+    color: black;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 40px;
+    border-radius: 5px;
+    cursor:pointer;
+    display:inline-block;
+    border:1px solid black;
+    margin-left:5px;
+}
+
+#category a{
+    color:black;
+}
+
+#category a:hover{
+    text-decoration: none !important;
+    color:white;
+    background-color: black;
+}
+
+#category:hover{
+    text-decoration: none !important;
+    color:white;
+    background-color: black;
+}
+
+#category-box{
+    margin-left:30px; 
+    width:120px;
+    height:30px; 
+    padding:5px;
+}

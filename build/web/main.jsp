@@ -21,7 +21,19 @@
                         <h1 class="text-center"><span class="bdots">&bullet;</span> P R O D U C T S </span>&bullet;</h1>
                     </div>
                     <hr>
-                    <div>
+                    <c:forEach items="${selectedCategories}" var="category" >
+                        <div class=" col-lg-1 category-box" style="margin-left:50px; margin-bottom:20px; display:inline-block;">
+                            <h5 style="display:inline-block;">${category}</h5>
+                            <div style="display:inline-block;">
+                                <form action="/WebShop/Categories" method="post" style="display:inline-block;">
+                                    <input type="hidden" value="${category}" name="category">
+                                    <input type="submit" color="black" value="x" 
+                                           style="width:25px; height:25px;padding:5px;margin-left:2px; font-size:27px; text-align: center; border:none;">
+                                </form>
+                            </div>
+                        </div>
+                        <div>
+                        </c:forEach>
                         <div class="row firstrow">
                             <div class="col-lg-12 costumcol colborder1">
                                 <c:forEach items="${productsFiltered}" var="p" >
