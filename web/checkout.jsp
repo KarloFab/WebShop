@@ -15,7 +15,7 @@
     <body>
         <%@include file="partials/header.jsp" %>
                 <div style="padding:30px;">
-        <table class="table">
+        <table class="table table-striped  table-sm">
             <thead>
                 <tr>
                     <th scope="col">Name</th>

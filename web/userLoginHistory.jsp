@@ -23,7 +23,7 @@
                     <input type="hidden" value="${login.user.iduser}" name="userId">
                 </form>
                 <hr>
-                <table class="table">
+                <table class="table table-striped table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Address</th>

@@ -20,11 +20,6 @@
         <div class="page-container">
             <div class="content-wrap">
                 <div class="bottommenu">
-                    <ul class="nav nav-tabs bottomlinks">
-                        <li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-                        <li role="presentation" ><a href="#/" role="button">CATEGORIES</a></li>
-                        <li role="presentation"><a href="/WebShop/Contact">CONTACT US</a></li>
-                    </ul>
                     <p>WebShop | JavaWeb</p>
                     <div class="bottomsocial">
                         <a href="#"><i class="fa fa-facebook"></i></a>

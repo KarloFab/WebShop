@@ -20,7 +20,7 @@
                 <c:when test="${!bills.isEmpty()}">
                     <c:forEach items="${bills}" var="b" >
                         <h3><fmt:formatDate type="both" value="${b.date}"/></h3>
-                        <table class="table">
+                        <table class="table table-striped table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">Name</th>

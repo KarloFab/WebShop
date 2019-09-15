@@ -37,7 +37,7 @@
                 <hr>
                 <h4><fmt:formatDate type="both" value="${b.date}"/></h4>
                 <hr>
-                <table class="table">
+                <table class="table table-striped table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>

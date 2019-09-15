@@ -30,7 +30,7 @@
                     <li><a href="http://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
                 </ul>
                 <ul class="store">
-                    <li>Store </li>
+                    <li>Web Shop </li>
                 </ul>
                 <ul class="logreg">
                     <c:choose>
