@@ -17,12 +17,12 @@
         </div>
         <form action="Login" method="post">
             <input type="text" id="login" class="fadeIn second" name="username" placeholder="Username">
-            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
         <p>${message}</p>
         <div id="formFooter">
-            <a class="forgotPassword" href="/WebShop/UserRegistration">Register</a>
+            <a class="forgotPassword" href="/UserRegistration">Register</a>
             <br/>
         </div>
     </div>

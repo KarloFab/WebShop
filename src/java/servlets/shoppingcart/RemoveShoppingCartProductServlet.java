@@ -22,8 +22,6 @@ import servlets.utils.ShoppingCartUtil;
  */
 public class RemoveShoppingCartProductServlet extends HttpServlet {
 
-    private AbstractDao shoppingCartProductDao = new ShoppingCartDao();
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -35,11 +35,11 @@
                 <ul class="logreg">
                     <c:choose>
                         <c:when test="${user != null}">
-                            <li><a href="/WebShop/LogoutServlet">Log Out </a> </li>
+                            <li><a href="/LogoutServlet">Log Out </a> </li>
                             </c:when>
                             <c:otherwise>
-                            <li><a href="/WebShop/Login">Log In |</a></li>
-                            <li><a href="/WebShop/UserRegistration">Register </a> </li>
+                            <li><a href="/Login">Log In |</a></li>
+                            <li><a href="/UserRegistration">Register </a> </li>
                             </c:otherwise>
                         </c:choose>
                 </ul>
@@ -48,40 +48,40 @@
                 <nav class="navbar-default" >
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav" style="text-align: center;" id="navbarontop">
-                            <li style="display: inline-block;"><a href="/WebShop/Main">HOME</a></li>
+                            <li style="display: inline-block;"><a href="/Main">HOME</a></li>
                             <li class="dropdown" style="display: inline-block;">
                                 <a class="dropdown-toggle" data-toggle="dropdown" 
                                    role="button" aria-haspopup="true"
                                    aria-expanded="false">CATEGORIES <span class="caret"></span></a>
                                 <ul class="dropdown-menu dropdowncostume" aria-labelledby="dropdownMenuButton">
                                     <c:forEach items="${categories}" var="c" >
-                                        <li><a href="/WebShop/Categories?category=${c.name}" class="dropdown-item">${c.name}</a></li>
+                                        <li><a href="/Categories?category=${c.name}" class="dropdown-item">${c.name}</a></li>
                                         </c:forEach>
                                 </ul>
                             </li>
                             <c:if test="${isAdmin}">
                                 <li style="display: inline-block;">
-                                    <a href="/WebShop/AddProduct">ADD PRODUCT</a>
+                                    <a href="/AddProduct">ADD PRODUCT</a>
                                 </li>
                             </c:if>
                             <li style="display: inline-block;">
                                 <c:if test="${not empty user}" >
-                                    <a href="/WebShop/ShoppingHistory">Shopping History</a>
+                                    <a href="/ShoppingHistory">Shopping History</a>
                                 </c:if>
                             </li>
                             <li style="display: inline-block;">
                                 <c:if test="${isAdmin}">
-                                    <a href="/WebShop/UsersShoppingHistory">Users Shopping History</a>
+                                    <a href="/UsersShoppingHistory">Users Shopping History</a>
                                 </c:if>
                             </li>
                             <li style="display: inline-block;">
                                 <c:if test="${isAdmin}">
-                                    <a href="/WebShop/UsersLoginHistory">Users Activity History</a>
+                                    <a href="/UsersLoginHistory">Users Activity History</a>
                                 </c:if>
                             </li>
                         </ul>
                         <i class="fa" style="font-size:10px;float:right;">                    
-                            <a href="/WebShop/ShoppingCart">
+                            <a href="/ShoppingCart">
                                 <img src="resources/imgs/Shopping-Cart-icon.png"
                                      style="width: 40px; height:40px;margin-top: 10px; margin-left: 30px;"/>
                             </a>

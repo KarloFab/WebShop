@@ -12,7 +12,7 @@
         <title>Shopping cart</title>
     </head>
     <body>
-        <form method="get" action="/WebShop/ShoppingCart">
+        <form method="get" action="/ShoppingCart">
             <input type="submit" value="View products in shopping cart">
         </form>
     </body>

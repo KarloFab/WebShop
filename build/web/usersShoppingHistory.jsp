@@ -12,9 +12,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Users Shopping History</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
-        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
         <script>
             $(function () {
                 $("#datepickerFrom").datepicker();
@@ -24,13 +24,13 @@
     </head>
     <body>
         <%@include file="partials/header.jsp" %>
-        <form action="/WebShop/UsersShoppingHistory" method="post" style="margin-top:40px; margin-left:30px;">
+        <form action="/UsersShoppingHistory" method="post" style="margin-top:40px; margin-left:30px;">
             <input class="form-control" name="username" type="text" placeholder="Search by Username.." style="width:200px;display:inline-block;">
             <input type="text" placeholder="Date from..." name="dateFrom" class="form-control" id="datepickerFrom" style="width:200px;display:inline-block;">
             <input type="text" placeholder="Date to..." name="dateTo" class="form-control" id="datepickerTo" style="width:200px;display:inline-block;">
             <input type="submit"  value="Search" name="username" class="btn btn-secondary" style="margin-left:10px;"/>
         </form>
-        <p>${message}</p>
+        <h1 style="margin-top:10px;">${message}</h1>
         <c:forEach items="${bills}" var="b" >
             <div style="padding:30px;">
                 <h3>${b.user.username}</h3>
@@ -43,6 +43,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Payment Method</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,23 +52,10 @@
                                 <td>${scp.product.name}</td>
                                 <td>${scp.product.price}</td>
                                 <td>${scp.quantity}</td>
+                                <td>${b.paymentMethod.getName()}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th scope="col">Price Sum</th>
-                            <th scope="col">Quantity Sum</th>
-                            <th scope="col">Payment Method</th>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>${productsPricesSum}</td>
-                            <td>${shoppingCartProductsQuantitySum}</td>
-                            <td>${b.paymentMethod.getName()}</td>
-                        </tr>
-                    </tfoot>
                 </table>
                 <br>
             </div>

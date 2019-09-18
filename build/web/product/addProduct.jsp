@@ -18,7 +18,7 @@
         <%@include file="/partials/header.jsp" %>
         <h1>Add product</h1>
         <div class="row firstrow">
-            <form action="/WebShop/AddProduct" method="post">
+            <form action="/AddProduct" method="post">
                 <p>Name</p>
                 <input type="text" name="name">
                 <p>Description</p>

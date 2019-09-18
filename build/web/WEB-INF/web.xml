@@ -20,7 +20,7 @@
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
-        <url-pattern>/UserLoginHistory</url-pattern>
+        <url-pattern>/UsersLoginHistory</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
@@ -33,6 +33,10 @@
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/UsersShoppingHistory</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/AddProduct</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>

@@ -13,7 +13,7 @@
     </head>
     <body>
         <%@include file="/partials/header.jsp" %>
-        <form action="/WebShop/UserRegistration" method="post">
+        <form action="/UserRegistration" method="post">
             <p>Name:</p>
             <input type="text" name="name">
             <p>Surname:</p>

@@ -18,7 +18,7 @@
         <div style="padding:30px;">
             <c:forEach items="${logins}" var="login" >
                 <h3>${login.user.username}</h3>
-                <form action="/WebShop/UserDetails" method="get">
+                <form action="/UserDetails" method="get">
                     <input type="submit"  value="Check user details" name="userDetails" class="btn btn-secondary"/>
                     <input type="hidden" value="${login.user.iduser}" name="userId">
                 </form>

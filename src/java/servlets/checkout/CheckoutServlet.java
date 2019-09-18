@@ -21,7 +21,6 @@ import repositories.AbstractDao;
 import repositories.BillDao;
 import repositories.PaymentMethodDao;
 import repositories.ShoppingCartDao;
-import services.ShoppingCartService;
 
 /**
  *
@@ -67,7 +66,7 @@ public class CheckoutServlet extends HttpServlet {
                     .findFirst()
                     .orElse(null);
 
-        } else if (request.getAttribute(cashDelivery) != null) {
+        } else if (cashDelivery != null) {
             paymentMethod = paymentMethods.stream()
                     .filter(pm -> pm.getName().equals(cashDelivery))
                     .findFirst()

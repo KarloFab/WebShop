@@ -36,16 +36,16 @@
                             </c:forEach>
                         <hr>
                         <h3><b>${product.price} &euro;</b></h3>
-                        <form action="/WebShop/ShoppingCart" method="post" style="margin-top:40px;">
+                        <form action="/ShoppingCart" method="post" style="margin-top:40px;">
                             <input type="submit" value="Add to shopping cart" class="btn btn-white" style="width:260px;">
                             <input type="hidden" value="${product.idproduct}" name="productId">
                         </form>  
                         <c:if test="${isAdmin}">
-                            <form action="/WebShop/DeleteProduct" method="post">
+                            <form action="/DeleteProduct" method="post">
                                 <input type="hidden" value="${product.idproduct}" name="productId">
                                 <input type="submit" value="Delete product">
                             </form> 
-                            <form action="/WebShop/UpdateProduct" method="post">
+                            <form action="/UpdateProduct" method="post">
                                 <input type="hidden" value="${product.idproduct}" name="productId">
                                 <input type="submit" value="Update product">
                             </form>

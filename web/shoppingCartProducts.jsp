@@ -18,7 +18,7 @@
         <c:choose>
             <c:when test="${shoppingCart != null}">
                 <div>
-                    <form action="/WebShop/CheckoutServlet" method="get" >
+                    <form action="/CheckoutServlet" method="get" >
                         <input type="submit" value="Checkout" class="btn btn-white" style="float:right; margin-right:40px; margin-top:10px;">
                     </form> 
                     <div class="">
@@ -31,14 +31,14 @@
                                         <p>${sc.product.description} &euro;</p>
                                         <h4>${sc.product.price} &euro;</h4>
                                         <div style="overflow:hiddeN">
-                                            <form action="/WebShop/AddRemoveProductServlet" method="post" style="margin-bottom:20px;">
+                                            <form action="/AddRemoveProductServlet" method="post" style="margin-bottom:20px;">
                                                 <input type="submit" id="${sc.product.idproduct}" value="+" 
                                                        name="add" class="btn btn-white" style="font-size:20px;"/>
                                                 <input type="submit" id="${sc.product.idproduct}" value="-" 
                                                        name="remove" class="btn btn-white" style="font-size:20px;"/>
                                                 <input type="hidden" value="${sc.product.idproduct}" name="productId">
                                             </form>
-                                            <form action="/WebShop/RemoveShoppingCartProduct" method="post" style="float:right;">
+                                            <form action="/RemoveShoppingCartProduct" method="post" style="float:right;">
                                                 <input type="hidden" value="${sc.product.idproduct}" name="productId" >
                                                 <input type="submit" value="Remove product from shopping cart" class="btn btn-secondary">
                                             </form>

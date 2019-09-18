@@ -927,7 +927,7 @@ input[type="submit"]:hover,
 
 /* [1] The container */
 .img-hover-zoom {
-    height: 250px; /* [1.1] Set it as per your need */
+    height: 300px; /* [1.1] Set it as per your need */
     overflow: hidden; /* [1.2] Hide the overflowing of child elements */
 }
 

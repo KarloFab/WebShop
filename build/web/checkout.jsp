@@ -47,7 +47,7 @@
         </table>
         <input id="price" type="hidden" value="${productsPricesSum}" />
         <h3>Pay by:</h3>
-        <form action="/WebShop/CheckoutServlet" method="post" style="display: inline-block;float:left;">
+        <form action="/CheckoutServlet" method="post" style="display: inline-block;float:left;">
             <input type="submit" value="Cash-Delivery" name="Cash-Delivery" id="cash-btn" class="btn btn-secondary">
             <input type="submit" value="PayPal"   name="PayPal" id="paypal-btn" class="btn btn-secondary" style="display:none;">
         </form>

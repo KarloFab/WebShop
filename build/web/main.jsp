@@ -25,7 +25,7 @@
                         <div class=" col-lg-1 category-box" style="margin-left:50px; margin-bottom:20px; display:inline-block;">
                             <h5 style="display:inline-block;">${category}</h5>
                             <div style="display:inline-block;">
-                                <form action="/WebShop/Categories" method="post" style="display:inline-block;">
+                                <form action="/Categories" method="post" style="display:inline-block;">
                                     <input type="hidden" value="${category}" name="category">
                                     <input type="submit" color="black" value="x" 
                                            style="width:25px; height:25px;padding:5px;margin-left:2px; font-size:27px; text-align: center; border:none;">
@@ -37,15 +37,15 @@
                         <div class="row firstrow">
                             <div class="col-lg-12 costumcol colborder1">
                                 <c:forEach items="${productsFiltered}" var="p" >
-                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <div class="featurecontant">
                                             <h1>${p.name}</h1>
                                             <div class="img-hover-zoom">
                                                 <img src="${p.imagePath}"/>
                                             </div>
                                             <h2 style="margin-top:4px;">${p.price} &euro;</h2>
-                                            <a href='/WebShop/Product?productId=${p.idproduct}' class="btn btn-dark" style="margin-left:70px;margin-bottom:30px;">DETAILS</a>
-                                            <form action="/WebShop/ShoppingCart" method="post">
+                                            <a href='/Product?productId=${p.idproduct}' class="btn btn-dark" style="margin-left:70px;margin-bottom:30px;">DETAILS</a>
+                                            <form action="/ShoppingCart" method="post">
                                                 <input type="submit" value="Add to shopping cart" class="btn btn-white" style="width:260px;">
                                                 <input type="hidden" value="${p.idproduct}" name="productId">
                                             </form>  

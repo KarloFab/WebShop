@@ -19,16 +19,16 @@
         <div>
             <c:forEach items="${products}" var="p" >
                 <li>
-                    <a href='/WebShop/Product?productId=${p.idproduct}'>${p.name}</a>
+                    <a href='/Product?productId=${p.idproduct}'>${p.name}</a>
                 </li>
-                <form action="/WebShop/ShoppingCart" method="post">
+                <form action="/ShoppingCart" method="post">
                     <input type="submit" value="Add to shopping cart">
                     <input type="hidden" value="${p.idproduct}" name="productId">
                 </form>   
             </c:forEach>
         </div>
         <%@include file="/partials/footer.jsp" %>
-        <form action="/WebShop/AddProduct" method="get">
+        <form action="/AddProduct" method="get">
             <input type="submit" value="Add new product">
         </form>  
     </body>
